@@ -1,5 +1,4 @@
-# perl_scripts
- #!/usr/bin/perl
+#!/usr/bin/perl
 ###############################################################################
 #
 # gethostinfo.pl  Retrieves all relevant information about the host, hardware
@@ -25,7 +24,7 @@ use Getopt::Long;
 use File::Temp;
 use Data::Dumper;
 
- ##### Globals
+##### Globals
 our $ScriptName = basename(__FILE__);
 our $ScriptDir = abs_path(dirname(__FILE__));
 our $Hostname = hostname();
@@ -46,9 +45,12 @@ our $Who = getpwuid($UID);
 our $Title;
 our $ModulesDirectory="$ScriptDir/modules.d";
 
- ##### Main
- 
- ## Get time
+
+##### Main
+
+
+## Get time
+
 our $Now = time();
 my($Seconds,$Minutes,$Hour,$Day,$Month,$Year,undef)=localtime($Now);
 $Year += 1900; $Month = sprintf("%02d",$Month+1);
@@ -57,7 +59,8 @@ $Minutes=sprintf("%02d",$Minutes);$Seconds = sprintf("%02d",$Seconds);
 our $NowTS = "${Year}${Month}${Day}_${Hour}${Minutes}${Seconds}";
 our $NowNice = "${Year}-${Month}-${Day} ${Hour}h${Minutes}m${Seconds}s";
 
- ### Command line options
+
+### Command line options
  
 our ($Help,$CleanOut,$Debug);
 
